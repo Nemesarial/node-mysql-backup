@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+var path = require('path')
+var minimist = require('minimist')
+var args = minimist(process.argv.slice(2))
+var dateFormat = require('dateformat')
+var dateComponent = dateFormat(new Date(),'yy.mm.dd_HH.MM')
+
+var baseFolder=process.cwd()
+var filename = path.resolve(args._[0])
+var outfile = `${path.dirname(filename)}/${path.basename(filename,'.json')}--${dateComponent}.sql`
+
+
+var config=require(filename)
+config.dest=outfile
+
+var mysqldump=require('../index')
+
+
+mysqldump(config,function(err){
+    if(err){
+        console.log(err)
+    }else{
+        console.log(outfile)
+    }
+})
+

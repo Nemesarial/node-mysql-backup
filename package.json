@@ -1,20 +1,26 @@
 {
-  "name": "mysql-dump",
+  "name": "@cthru/devsql",
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {},
   "dependencies": {
+    "dateformat": "^3.0.3",
     "extend": "^3.0.1",
+    "minimist": "^1.2.0",
     "mysql": "^2.15.0"
   },
+  "bin": {
+    "devsql" : "./bin/devsql"
+  },
+  "preferGlobal": true,
   "scripts": {
     "test": "node test.js"
   },
-  "author": "zhaojunlike@qq.com",
+  "author": "nemesarial@gmail.com",
   "license": "ISC",
-  "description": "The mysql database backup module,useful!!!",
+  "description": "configurable mysql dump",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhaojunlike/node-mysql-backup.git"
+    "url": "https://github.com/Nemesarial/node-mysql-backup.git"
   }
 }
